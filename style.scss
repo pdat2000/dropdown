@@ -1,0 +1,92 @@
+$primary: #de4b3e;
+$secondary: #c74237;
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: "Poppins", sans-serif;
+  font-size: 62.5%;
+  background-attachment: #1a1c28;
+}
+.dropdown {
+  width: 100%;
+  max-width: 47.5rem;
+  margin: 5rem auto;
+  position: relative;
+  &:hover .dropdown__list {
+    display: block;
+  }
+  &__select {
+    width: 100%;
+    padding: 3rem;
+    background-color: $primary;
+    border-radius: 4px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  &__caret {
+    font-size: 1.6rem;
+  }
+  &__list {
+    margin-top: 3.5rem;
+    border-radius: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    &::before {
+      content: "";
+      height: 3.5rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: transparent;
+      transform: translateY(-100%);
+    }
+  }
+  &__item {
+    padding: 3rem;
+    background-color: $primary;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+    &:first-child {
+      position: relative;
+      border-radius: 4px 4px 0 0;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 3rem;
+        border-left: 1rem solid transparent;
+        border-right: 1rem solid transparent;
+        border-bottom: 1rem solid $primary;
+        transform: translateY(-100%);
+        transition: border-color 0.2s linear;
+      }
+      &:hover::before {
+        border-bottom-color: $secondary;
+      }
+    }
+    &:last-child {
+      border-radius: 0 0 4px 4px;
+    }
+    &:hover {
+      background-color: $secondary;
+    }
+  }
+}
